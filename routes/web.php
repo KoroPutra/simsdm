@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Chat\Main;
+use App\Livewire\Chat\CreateChat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TabelController;
 use App\Http\Controllers\KonsultasiController;
@@ -24,6 +26,9 @@ Route::view('konseler', 'konseler')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::get('/users', CreateChat::class)->name('users');
+Route::get('/chat{key?}', Main::class)->name('chat');
 
     Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::get('tabel', [TabelController::class, 'index'])->name('tabel');
