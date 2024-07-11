@@ -36,8 +36,8 @@
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Simpan</button>
-                                    <button class="bg-green-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Mulai Percakapan</button>
-                                    </td>
+                                    <a href="{{ route('chat', $item->user_id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">Mulai Percakapan</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

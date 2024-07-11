@@ -14,11 +14,6 @@ class Konsultasi extends Model
         'id','user_id','email','no_telpon','judul','pesan',
     ];
 
-    public function getAll()
-    {
-        
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
