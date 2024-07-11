@@ -4,37 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Models\Konsultasi;
 
 class KonsultasiController extends Controller
 {
     public function create()
     {
         $user = Auth::user();
-        return view('consultations.create', compact('user'));
+        return view('konsultasi.create', compact('user'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'pesan' => 'required|string',
+            'email' => 'required|email',
+            'no_telpon' => 'required',
+            'judul' => 'required',
+            'pesan' => 'required',
+            'user_id' => 'required|exists:users,id',
         ]);
 
-        \App\Models\Konsultasi::create([
-            'user_id' => Auth::id(),
+        Konsultasi::create([
+            'user_id' => $request->user_id,
+            'email' => $request->email,
+            'no_telpon' => $request->no_telpon,
             'judul' => $request->judul,
             'pesan' => $request->pesan,
         ]);
 
-        return redirect()->route('consultations.create')->with('success', 'Konsultasi berhasil dikirim!');
+        return redirect()->route('konsultasi.store')->with('success', 'Konsultasi berhasil dikirim!');
     }
 
     public function getUserId()
     {
+        $id = Auth::user()->id;
         $nama = Auth::user()->name;
         $nips = Auth::user()->nip;
         $untkerja = Auth::user()->unit_kerja;
-        return view('konseling', compact('nama', 'nips', 'untkerja'));
+        return view('konseling', compact('id', 'nama', 'nips', 'untkerja'));
     }
 }

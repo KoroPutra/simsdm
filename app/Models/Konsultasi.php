@@ -9,9 +9,15 @@ class Konsultasi extends Model
 {
     use HasFactory;
 
+    protected $table = 'konsultasi';
     protected $fillable = [
-        'id', 'name', 'unit_kerja'
+        'id','user_id','email','no_telpon','judul','pesan',
     ];
+
+    public function getAll()
+    {
+        
+    }
 
     public function user()
     {

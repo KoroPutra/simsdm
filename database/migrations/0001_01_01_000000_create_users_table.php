@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nip')->nullable();
             $table->string('unit_kerja')->nullable();
             $table->string('no_hp')->nullable();
+            $table->integer('role')->default(3); // 1. admin, 2. konsultasi, 3. pegawai
             $table->string('judul')->nullable();
             $table->string('konsultasi')->nullable();
             $table->string('email')->unique();

@@ -20,7 +20,19 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $userRole=Auth::user()->role;
+
+        switch($userRole){
+            case 1: 
+            $this->redirectIntended(default: route('admin', absolute: false), navigate: true);
+            break;
+            case 2: 
+            $this->redirectIntended(default: route('konseler', absolute: false), navigate: true);
+            break;
+            case 3: 
+            $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+            break;
+        }
     }
 }; ?>
 

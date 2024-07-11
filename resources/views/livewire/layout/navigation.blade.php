@@ -34,11 +34,22 @@ new class extends Component
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <!-- User Links -->
+                @if(auth()->user()->role == '3')
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('konseling')" :active="request()->routeIs('konseling')" wire:navigate>
                         {{ __('E-Konseling') }}
                     </x-nav-link>
                 </div>
+                @endif
+                <!-- Tabel Links -->
+                @if(auth()->user()->role == '1')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('tabel')" :active="request()->routeIs('tabel')" wire:navigate>
+                        {{ __('Tabel Konseling') }}
+                    </x-nav-link>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->
