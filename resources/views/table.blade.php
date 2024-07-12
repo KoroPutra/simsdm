@@ -23,15 +23,16 @@
                         <tbody class="block md:table-row-group">
                             @foreach ($konsultasi as $item)
                             <tr class="bg-white border border-grey-500 md:border-none block md:table-row">
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{ $item->id }}</td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{ $item->judul }}</td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">{{ date('d F Y', strtotime($item->created_at)) }}</td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"></td>
-                                <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+                                <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell">{{ $item->id }}</td>
+                                <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell">{{ $item->judul }}</td>
+                                <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell">{{ date('d F Y', strtotime($item->created_at)) }}</td>
+                                <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell"></td>
+                                <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell">
                                     <select class="p-2 border border-gray-300 rounded w-full">
                                         <option value="" disabled selected>Pilih Konseler</option>
-                                        <option value="konseler 1" >Konseler 1</option>
-                                        <option value="konseler 2" >Konseler 2</option>
+                                        @foreach ($konselors as $konseler)
+                                        <option value="{{ $konseler->id }}" >{{ $konseler->name }}</option>
+                                        @endforeach
                                     </select>
                                 </td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">

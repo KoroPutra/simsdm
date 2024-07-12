@@ -1,7 +1,7 @@
 <?php
 
+use App\Livewire\Chat;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TabelController;
 use App\Http\Controllers\KonsultasiController;
 
@@ -28,7 +28,7 @@ Route::view('profile', 'profile')
 
     Route::middleware(['auth', 'verified', 'admin'])->group(function () {
         Route::get('tabel', [TabelController::class, 'index'])->name('tabel');
-        Route::get('/chat/{user}', [ChatController::class, 'show'])->name('chat');
+        Route::get('tabel/chat/{user}', Chat::class)->name('chat');
 
     });
 
