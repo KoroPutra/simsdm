@@ -14,15 +14,15 @@
                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
-                            <input type="text" id="name" name="name" value="{{ $nama }}" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input type="text" id="name" name="name" value="{{ $nama }}" disabled class="font-bold mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ">
                         </div>
                         <div class="mb-4">
                             <label for="nip" class="block text-sm font-medium text-gray-700">NIP/NRP</label>
-                            <input type="text" id="nip" name="nip" value="{{ $nips }}" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input type="text" id="nip" name="nip" value="{{ $nips }}" disabled class="font-bold mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         <div class="mb-4">
                             <label for="unit_kerja" class="block text-sm font-medium text-gray-700">Unit Kerja</label>
-                            <input type="text" id="unit_kerja" name="unit_kerja" value="{{ $untkerja }}" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <input type="text" id="unit_kerja" name="unit_kerja" value="{{ $untkerja }}" disabled class="font-bold mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                         </div>
                         <div class="mb-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">Email</label>

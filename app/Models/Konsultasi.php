@@ -18,4 +18,9 @@ class Konsultasi extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function konseler()
+    {
+        return $this->belongsTo(User::class, 'konseler_id');
+    }
 }

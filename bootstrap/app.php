@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Middleware\User;
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\Konseler;
+use App\Http\Middleware\CheckRole;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\Admin;
-use App\Http\Middleware\Konseler;
-use App\Http\Middleware\User;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -18,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin'=> Admin::class,
             'konseler'=> Konseler::class,
             'user'=> User::class,
+            'check.role'=> CheckRole::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -38,10 +38,26 @@ new class extends Component
                 @if(auth()->user()->role == '3')
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('konseling')" :active="request()->routeIs('konseling')" wire:navigate>
+                        {{ __('Form Konseling') }}
+                    </x-nav-link>
+                </div>
+
+                <!--Konseling Link -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('tabel-user')" :active="request()->routeIs('tabel-user')" wire:navigate>
                         {{ __('E-Konseling') }}
                     </x-nav-link>
                 </div>
                 @endif
+
+                @if(auth()->user()->role == '2')
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('konseler.konsultasi')" :active="request()->routeIs('konseler.konsultasi')" wire:navigate>
+                        {{ __('Tabel Pegawai Konseling') }}
+                    </x-nav-link>
+                </div>
+                @endif
+
                 <!-- Tabel Links -->
                 @if(auth()->user()->role == '1')
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -101,13 +117,29 @@ new class extends Component
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-        <div class="pt-2 pb-3 space-y-1">
 
+        <!-- Responsive untuk User -->
+        @if(auth()->user()->role == '3')
+        <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('konseling')" :active="request()->routeIs('konseling')" wire:navigate>
+                {{ __('Form Konseling') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('tabel-user')" :active="request()->routeIs('tabel-user')" wire:navigate>
                 {{ __('E-Konseling') }}
             </x-responsive-nav-link>
         </div>
+        @endif
 
+        @if(auth()->user()->role == '1')
+        <div class="pt-2 pb-3 space-y-1">
+            
+            <x-responsive-nav-link :href="route('tabel')" :active="request()->routeIs('tabel')" wire:navigate>
+                {{ __('Tabel Konseling') }}
+            </x-responsive-nav-link>
+        </div>
+        @endif
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
