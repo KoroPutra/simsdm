@@ -12,19 +12,6 @@
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                         {{ __('Pesan dari Konseler') }}
                     </h2>
-                    <div class="container mt-2">
-                        @foreach ($users as $sender)
-                            <span class="relative inline-flex mb-2">
-                                <a href="{{ route('chat', $sender->id) }}" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-sky-500 bg-white dark:bg-slate-800 transition ease-in-out duration-150  ring-1 ring-slate-900/10 dark:ring-slate-200/20"> 
-                                    {{ $sender->name }}
-                                </a>
-                                <span id="notificationDot_{{ $sender->id }}" class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-                                </span>
-                            </span>
-                        @endforeach
-                    </div>
                 </div>
             </div>
         </div>

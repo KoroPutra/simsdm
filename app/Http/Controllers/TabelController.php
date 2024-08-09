@@ -16,11 +16,11 @@ class TabelController extends Controller
         $konsultasi = Konsultasi::with('konseler')
             ->select('konsultasi.*', DB::raw('(
                 SELECT MAX(updated_at) FROM messages 
-                WHERE (messages.from_user_id = konsultasi.konseler_id AND messages.to_user_id = konsultasi.user_id) 
-                OR (messages.from_user_id = konsultasi.user_id AND messages.to_user_id = konsultasi.konseler_id)
+                WHERE (messages.from_user_id = konsultasi.konseler_id) 
+                OR (messages.from_user_id = konsultasi.user_id)
             ) as last_message_updated_at'))
             ->orderBy('id', 'desc')
-            ->get();
+            ->paginate(5);
 
         $users = User::where('id', '!=', auth()->id())->get();
         $konselors = User::where('role', 2)->get();

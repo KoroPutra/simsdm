@@ -23,7 +23,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('tabel/chat/{user}', Chat::class)
+Route::get('tabel/chat/{konsultasi_id}', Chat::class)
     ->middleware(['auth', 'verified', 'check.role:1,2,3'])
     ->name('chat');
 

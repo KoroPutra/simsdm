@@ -24,7 +24,7 @@ class KonsultasiController extends Controller
             'user_id' => 'required|exists:users,id',
         ]);
 
-        Konsultasi::create([
+        $konsultasi = Konsultasi::create([
             'user_id' => $request->user_id,
             'email' => $request->email,
             'no_telpon' => $request->no_telpon,
@@ -32,7 +32,8 @@ class KonsultasiController extends Controller
             'pesan' => $request->pesan,
         ]);
 
-        return redirect()->route('konsultasi.store')->with('success', 'Konsultasi berhasil dikirim!');
+        return redirect()->route('chat', ['konsultasi_id' => $konsultasi->id])
+                        ->with('success', 'Konsultasi berhasil dikirim!');
     }
 
     public function getUserId()

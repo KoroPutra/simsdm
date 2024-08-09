@@ -41,14 +41,14 @@ class UserController extends Controller
 
         $today = Carbon::today();
 
-        $users = User::whereIn('id', function ($query) use ($user, $today) {
-            $query->select('from_user_id')
-                ->from('messages')
-                ->where('to_user_id', $user->id)
-                ->whereDate('created_at', $today)
-                ->distinct();
-        })->get();
+        // $users = User::whereIn('id', function ($query) use ($user, $today) {
+        //     $query->select('from_user_id')
+        //         ->from('messages')
+        //         ->where('to_user_id', $user->id)
+        //         ->whereDate('created_at', $today)
+        //         ->distinct();
+        // })->get();
 
-        return view('dashboard', compact('users', 'user'));
+        return view('dashboard', compact('user'));
     }
 }

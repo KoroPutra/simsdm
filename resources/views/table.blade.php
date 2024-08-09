@@ -40,14 +40,21 @@
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Simpan</button>
                                 </form>
-                                    <a href="{{ route('chat', $item->user_id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">Mulai Percakapan</a>
+                                    <a href="{{ route('chat', ['konsultasi_id' => $item->id]) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">Mulai Percakapan</a>
+                                    <script>
+                                        console.log(<?php echo $item->user_id ?>)
+                                    </script>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="mt-4">
+                        {{ $konsultasi->links() }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </x-app-layout>

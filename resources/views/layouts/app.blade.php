@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         
         <!-- Sweet Alert -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.0/sweetalert2.all.min.js" integrity="sha512-3VXeZhhm1/owfuUI+kWBQBjUOZXOEc97aUMwHS9zxA71HxhVaKMxYXX5BzE5mHiN5wxhWTTZWLoSO5MmcrcunQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.12.0/sweetalert2.all.min.js" integrity="sha512-3VXeZhhm1/owfuUI+kWBQBjUOZXOEc97aUMwHS9zxA71HxhVaKMxYXX5BzE5mHiN5wxhWTTZWLoSO5MmcrcunQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])

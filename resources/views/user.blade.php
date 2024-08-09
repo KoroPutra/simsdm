@@ -27,7 +27,7 @@
                                 <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell">{{ date('d F Y', strtotime($item->created_at)) }}</td>
                                 <td class="p-2 md:border md:border-grey-500 text-left text-black block md:table-cell"></td>
                                 <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-                                    <a href="{{ route('chat', $item->user_id = 1) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">Mulai Percakapan</a>
+                                    <a href="{{ route('chat', ['konsultasi_id' => $item->id]) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">Mulai Percakapan</a>
                                 </td>
                             </tr>
                             @endforeach
