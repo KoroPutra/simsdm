@@ -41,9 +41,6 @@
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">Simpan</button>
                                 </form>
                                     <a href="{{ route('chat', ['konsultasi_id' => $item->id]) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded">Mulai Percakapan</a>
-                                    <script>
-                                        console.log(<?php echo $item->user_id ?>)
-                                    </script>
                                 </td>
                             </tr>
                             @endforeach
