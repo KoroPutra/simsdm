@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
+use App\Models\Konsultasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Konsultasi;
 
 class KonsultasiController extends Controller
 {
@@ -30,6 +31,12 @@ class KonsultasiController extends Controller
             'no_telpon' => $request->no_telpon,
             'judul' => $request->judul,
             'pesan' => $request->pesan,
+        ]);
+
+        Message::create([
+            'from_user_id' => auth()->id(),
+            'message' => $request->pesan,
+            'konsultasi_id' => $konsultasi->id,
         ]);
 
         return redirect()->route('chat', ['konsultasi_id' => $konsultasi->id])

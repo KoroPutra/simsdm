@@ -30,9 +30,17 @@ class TabelController extends Controller
 
     public function assignKonseler(Request $request, Konsultasi $konsultasi)
     {
+        $request->validate([
+            'konseler_id' => 'required|exists:users,id',
+            'jadwal' => 'required|date',
+        ]);
+
         $konsultasi->konseler_id = $request->input('konseler_id');
+        $konsultasi->jadwal = $request->input('jadwal');
+        $konsultasi->status = 1;
         $konsultasi->save();
 
-        return redirect()->back()->with('success', 'Konsultasi ditugaskan');
+        return redirect()->back()->with('success', 'Konsultasi telah ditugaskan dan jadwal diperbarui.');
     }
+
 }

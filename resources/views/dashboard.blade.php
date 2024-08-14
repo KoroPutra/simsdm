@@ -16,6 +16,11 @@
             </div>
         </div>
     </div>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         document.querySelectorAll('[id^="toggleButton_"]').forEach(function(button) {
             button.addEventListener('click', function() {
@@ -26,5 +31,12 @@
                 }
             });
         });
+        @if(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Dilarang Masuk',
+            text: '{{ session('error') }}',
+        });
+        @endif
     </script>
 </x-app-layout>
